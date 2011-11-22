@@ -1,4 +1,31 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+<div align="center">
+
+    <h1>${header}</h1>
+
+    <img src="https://lh5.googleusercontent.com/-6aFlIzoBqqQ/TsvorIm_UTI/AAAAAAAADVg/_ks3-dOjJNU/s400/DSC_1159.JPG" border="5" height="200">
+
+
+    <ul>
+        #{list comments, as: 'comment'}
+        <p>${comment.greeting} säger ${comment.author}</p>
+        #{/list}
+    </ul>
+
+    #{form @Application.add()}
+    <div>
+        Greeting:
+        <input name="greeting"/>
+    </div>
+    <div>
+        Name:
+        <input name="author" />
+    </div>
+    <div>
+        <input type="submit" value="Add greeting"/>
+    </div>
+    #{/form}
+
+</div>

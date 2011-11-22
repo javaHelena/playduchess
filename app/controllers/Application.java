@@ -10,7 +10,18 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-        render();
+        List comments = Comment.findAll();
+        String header = "Duchess Meeting 22 nov";
+
+        render(comments, header);
     }
+
+
+    public static void add(String greeting, String author){
+        Comment comment = new Comment(greeting, author);
+        comment.save();
+        index();
+    }
+
 
 }
